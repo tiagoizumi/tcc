@@ -34,7 +34,7 @@ def f_obj(i, n, d, sol):
 
     return tot
 
-
+# Únicos disponíveis
 I = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 N = [20, 25, 30, 40]
 D = [25, 50, 75, 100]
