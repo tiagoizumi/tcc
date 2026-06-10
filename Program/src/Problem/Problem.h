@@ -191,6 +191,12 @@ double Decoder(TSol &s, const TProblemData &data)
         }
     }
 
+    ////////// VERIFY
+    // for (int x : x) {
+    //     std::cout << x << " ";
+    // }
+    // printf("\nPeso total: %d (capacidade: %d)\n", (int)weight, data.cap);
+
     // =========================
     // PARTE 2: Cálculo da função objetivo completa
     // =========================
