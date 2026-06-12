@@ -6,8 +6,8 @@ struct TProblemData
     int n;       // size of the RKO vector (= nItems)
     int nItems;
     int cap;
-    std::vector<int> c;                           // linear benefits
     std::vector<int> w;                           // weights
+    std::vector<int> c;                           // linear benefits
     std::vector<std::vector<int>> p;              // quadratic benefits
     std::vector<std::vector<std::vector<int>>> d; // cubic benefits
 };
@@ -139,10 +139,6 @@ double Decoder(TSol &s, const TProblemData &data)
             return s.rk[a] > s.rk[b];
         });
 
-    // =========================
-    // PARTE 1: Construção da solução (vetor binário x)
-    // =========================
-
     std::vector<int> x(n, 0); // vetor binário
     double weight = 0.0;
 
@@ -150,41 +146,7 @@ double Decoder(TSol &s, const TProblemData &data)
     {
         int i = order[idx];
 
-        if (weight + data.w[i] > data.cap)
-            continue;
-
-        double delta = 0.0;
-
-        // contribuição linear
-        delta += data.c[i];
-
-        // contribuição quadrática
-        for (int j = 0; j < n; j++)
-        {
-            if (x[j])
-            {
-                delta += data.p[i][j];
-                delta += data.p[j][i];
-            }
-        }
-
-        // contribuição cúbica
-        for (int j = 0; j < n; j++)
-        {
-            if (!x[j]) continue;
-
-            for (int k = 0; k < n; k++)
-            {
-                if (!x[k] || j == k) continue;
-
-                delta += data.d[i][j][k];
-                delta += data.d[j][i][k];
-                delta += data.d[j][k][i];
-            }
-        }
-
-        // critério guloso
-        if (delta > 0)
+        if (weight + data.w[i] <= data.cap)
         {
             x[i] = 1;
             weight += data.w[i];
@@ -192,53 +154,29 @@ double Decoder(TSol &s, const TProblemData &data)
     }
 
     ////////// VERIFY
-    // for (int x : x) {
-    //     std::cout << x << " ";
-    // }
-    // printf("\nPeso total: %d (capacidade: %d)\n", (int)weight, data.cap);
-
-    // =========================
-    // PARTE 2: Cálculo da função objetivo completa
-    // =========================
+    for (int x : x) {
+        std::cout << x << " ";
+    }
+    printf("\nPeso total: %d (capacidade: %d)\n", (int)weight, data.cap);
 
     double cost = 0.0;
 
     // Linear
     for (int i = 0; i < n; i++)
-    {
-        if (x[i])
-            cost += data.c[i];
-    }
+        cost += data.c[i] * x[i];
 
-    // Quadrático (direcional)
+    // Quadratic (i < j to avoid double counting)
     for (int i = 0; i < n; i++)
-    {
-        if (!x[i]) continue;
-
         for (int j = 0; j < n; j++)
-        {
-            if (i != j && x[j])
-                cost += data.p[i][j];
-        }
-    }
+            if (i != j)
+                cost += data.p[i][j] * x[i] * x[j];
 
-    // Cúbico (todas permutações válidas)
+    // Cubic (i < j < k)
     for (int i = 0; i < n; i++)
-    {
-        if (!x[i]) continue;
-
         for (int j = 0; j < n; j++)
-        {
-            if (!x[j] || j == i) continue;
-
             for (int k = 0; k < n; k++)
-            {
-                if (!x[k] || k == i || k == j) continue;
-
-                cost += data.d[i][j][k];
-            }
-        }
-    }
+                if (j != k && i != k)
+                    cost += data.d[i][j][k] * x[i] * x[j] * x[k];
 
     return -cost;
 }
