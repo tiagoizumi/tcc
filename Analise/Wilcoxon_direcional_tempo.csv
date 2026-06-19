@@ -1,10 +1,10 @@
-﻿Comparação;Média SA;Média ILS;Significativo (Bicaudal)?;p-valor (Bicaudal);p-valor (Unilateral);Veredito Final;Média VNS;Média BRKGA;Média BRKGA-CS;Média PSO;Média GA;Média LNS;Média GRASP;Média IPR
-SA vs ILS;7.3800814;10.745506925;Sim;3.1401395972352475e-07;1.5700697986176237e-07;SA é estatisticamente MAIS RÁPIDO que ILS;;;;;;;;
-SA vs VNS;7.3800814;;Sim;7.708757948421407e-05;3.854378974210704e-05;SA é estatisticamente MAIS RÁPIDO que VNS;10.624866399999998;;;;;;;
-SA vs BRKGA;7.3800814;;Sim;0.0005381573264457984;0.0002690786632228992;SA é estatisticamente MAIS RÁPIDO que BRKGA;;8.6540096;;;;;;
-SA vs BRKGA-CS;7.3800814;;Sim;2.104776467604097e-05;1.0523882338020485e-05;SA é estatisticamente MAIS RÁPIDO que BRKGA-CS;;;10.061294625;;;;;
-SA vs PSO;7.3800814;;Não;0.42021225081225566;N/A;Algoritmos Equivalentes (Empate);;;;7.740114600000001;;;;
-SA vs GA;7.3800814;;Sim;0.0012975311765330844;0.0006487655882665422;SA é estatisticamente MAIS RÁPIDO que GA;;;;;8.717583825;;;
-SA vs LNS;7.3800814;;Não;0.08665273707811139;N/A;Algoritmos Equivalentes (Empate);;;;;;8.168640700000001;;
-SA vs GRASP;7.3800814;;Não;0.8995151304461615;N/A;Algoritmos Equivalentes (Empate);;;;;;;7.767436125000001;
-SA vs IPR;7.3800814;;Sim;1.8189894035458565e-12;9.094947017729282e-13;IPR é estatisticamente MAIS RÁPIDO que SA;;;;;;;;0.937589625
+﻿Comparação;Média SA;Média ILS;Significativo (Bicaudal)?;p-valor (Bicaudal);p-valor (Unilateral);Veredito Final;Média VNS;Média BRKGA;Média BRKGACS;Média PSO;Média GA;Média LNS;Média GRASP;Média RKO
+SA vs ILS;inf;inf;Sim;0.0028143317790427663;0.0014071658895213831;SA é estatisticamente MAIS RÁPIDO que ILS;;;;;;;;
+SA vs VNS;inf;;Sim;0.014730498755740545;0.007365249377870272;SA é estatisticamente MAIS RÁPIDO que VNS;inf;;;;;;;
+SA vs BRKGA;inf;;Sim;0.00024273640107985264;0.00012136820053992632;BRKGA é estatisticamente MAIS RÁPIDO que SA;;inf;;;;;;
+SA vs BRKGACS;inf;;Não;0.05845774676080499;N/A;Algoritmos Equivalentes (Empate);;;inf;;;;;
+SA vs PSO;inf;;Não;0.05177319894421727;N/A;Algoritmos Equivalentes (Empate);;;;inf;;;;
+SA vs GA;inf;;Sim;0.04503929882668801;0.022519649413344004;GA é estatisticamente MAIS RÁPIDO que SA;;;;;inf;;;
+SA vs LNS;inf;;Não;0.3798251938371662;N/A;Algoritmos Equivalentes (Empate);;;;;;inf;;
+SA vs GRASP;inf;;Sim;0.0024653917216077266;0.0012326958608038633;SA é estatisticamente MAIS RÁPIDO que GRASP;;;;;;;inf;
+SA vs RKO;inf;;Sim;7.799274761554834e-08;3.899637380777417e-08;RKO é estatisticamente MAIS RÁPIDO que SA;;;;;;;;inf
