@@ -87,9 +87,8 @@ double Decoder1(TSol &s, const TProblemData &data)
     int n = data.n;
     std::vector<int> x(n, 0);
     for (int i = 0; i < n; i++)
-    if (s.rk[i] > 0.5)
-    x[i] = 1;
-    // std::vector<int> x = {0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1};
+        if (s.rk[i] > 0.5)
+            x[i] = 1;
 
     // Check capacity
     int totalW = 0;
@@ -98,24 +97,22 @@ double Decoder1(TSol &s, const TProblemData &data)
 
     int infeasible = std::max(0, totalW - data.cap);
 
-    // Objective: linear + quadratic + cubic terms
     double cost = 0.0;
-
     // Linear
     for (int i = 0; i < n; i++)
         cost += data.c[i] * x[i];
 
-    // Quadratic (i < j to avoid double counting)
+    // Quadratic
     for (int i = 0; i < n; i++)
         for (int j = 0; j < n; j++)
             if (i != j)
                 cost += data.p[i][j] * x[i] * x[j];
 
-    // Cubic (i < j < k)
+    // Cubic
     for (int i = 0; i < n; i++)
         for (int j = 0; j < n; j++)
             for (int k = 0; k < n; k++)
-                if (i != j && j != k && i != k)
+                if (j != k && i != k)
                     cost += data.d[i][j][k] * x[i] * x[j] * x[k];
 
     // Penalty for infeasibility
@@ -142,36 +139,32 @@ double Decoder(TSol &s, const TProblemData &data)
     std::vector<int> x(n, 0); // vetor binário
     double weight = 0.0;
 
-    for (int idx = 0; idx < n; idx++)
-    {
+    for (int idx = 0; idx < n; idx++) {
         int i = order[idx];
-
-        if (weight + data.w[i] <= data.cap)
-        {
+        if (weight + data.w[i] <= data.cap) {
             x[i] = 1;
             weight += data.w[i];
         }
     }
 
     ////////// VERIFY
-    for (int x : x) {
-        std::cout << x << " ";
-    }
-    printf("\nPeso total: %d (capacidade: %d)\n", (int)weight, data.cap);
+    // for (int x : x) {
+    //     std::cout << x << " ";
+    // }
+    // printf("\nPeso total: %d (capacidade: %d)\n", (int)weight, data.cap);
 
     double cost = 0.0;
-
     // Linear
     for (int i = 0; i < n; i++)
         cost += data.c[i] * x[i];
 
-    // Quadratic (i < j to avoid double counting)
+    // Quadratic
     for (int i = 0; i < n; i++)
         for (int j = 0; j < n; j++)
             if (i != j)
                 cost += data.p[i][j] * x[i] * x[j];
 
-    // Cubic (i < j < k)
+    // Cubic
     for (int i = 0; i < n; i++)
         for (int j = 0; j < n; j++)
             for (int k = 0; k < n; k++)

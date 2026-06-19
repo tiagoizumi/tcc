@@ -104,7 +104,7 @@ void WriteResults(const char *algorithms[], int numMH, double ofv,
 	}
 	fprintf(File,"\t%lf", ofv);
 	fprintf(File,"\t%lf", ofvAverage);
-	fprintf(File,"\t%.3f", timeBest);
+	fprintf(File,"\t%.6f", timeBest);
 	fprintf(File,"\t%.3f", timeTotal);
 
 	fclose(File);
