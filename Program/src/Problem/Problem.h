@@ -81,8 +81,8 @@ void ReadData(char name[], TProblemData &data)
     fclose(fD);
 }
 
-// Básico 
-double Decoder1(TSol &s, const TProblemData &data)
+// Genérico
+double Decoder(TSol &s, const TProblemData &data)
 {
     int n = data.n;
     std::vector<int> x(n, 0);
@@ -90,40 +90,39 @@ double Decoder1(TSol &s, const TProblemData &data)
         if (s.rk[i] > 0.5)
             x[i] = 1;
 
-    // Check capacity
+    // Reparo: mantém apenas os itens que cabem na mochila
     int totalW = 0;
     for (int i = 0; i < n; i++)
-        totalW += data.w[i] * x[i];
-
-    int infeasible = std::max(0, totalW - data.cap);
+        if (x[i] == 1)
+            if (totalW + data.w[i] <= data.cap)
+                totalW += data.w[i];
+            else
+                x[i] = 0;
 
     double cost = 0.0;
-    // Linear
+
+    // Lucro linear
     for (int i = 0; i < n; i++)
         cost += data.c[i] * x[i];
 
-    // Quadratic
+    // Lucro quadrático
     for (int i = 0; i < n; i++)
         for (int j = 0; j < n; j++)
             if (i != j)
                 cost += data.p[i][j] * x[i] * x[j];
 
-    // Cubic
+    // Lucro cúbico
     for (int i = 0; i < n; i++)
         for (int j = 0; j < n; j++)
             for (int k = 0; k < n; k++)
-                if (j != k && i != k)
+                if (i != k && j != k)
                     cost += data.d[i][j][k] * x[i] * x[j] * x[k];
 
-    // Penalty for infeasibility
-    cost -= 100000.0 * infeasible;
-
-    // Minimization
     return -cost;
 }
 
 // Incremental
-double Decoder(TSol &s, const TProblemData &data)
+double Decoder2(TSol &s, const TProblemData &data)
 {
     int n = data.nItems;
 
