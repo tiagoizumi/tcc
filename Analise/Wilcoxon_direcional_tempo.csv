@@ -1,10 +1,10 @@
 ﻿Comparação;Média SA;Média ILS;Significativo (Bicaudal)?;p-valor (Bicaudal);p-valor (Unilateral);Veredito Final;Média VNS;Média BRKGA;Média BRKGACS;Média PSO;Média GA;Média LNS;Média GRASP;Média RKO
-SA vs ILS;inf;inf;Sim;0.0028143317790427663;0.0014071658895213831;SA é estatisticamente MAIS RÁPIDO que ILS;;;;;;;;
-SA vs VNS;inf;;Sim;0.014730498755740545;0.007365249377870272;SA é estatisticamente MAIS RÁPIDO que VNS;inf;;;;;;;
-SA vs BRKGA;inf;;Sim;0.00024273640107985264;0.00012136820053992632;BRKGA é estatisticamente MAIS RÁPIDO que SA;;inf;;;;;;
-SA vs BRKGACS;inf;;Não;0.05845774676080499;N/A;Algoritmos Equivalentes (Empate);;;inf;;;;;
-SA vs PSO;inf;;Não;0.05177319894421727;N/A;Algoritmos Equivalentes (Empate);;;;inf;;;;
-SA vs GA;inf;;Sim;0.04503929882668801;0.022519649413344004;GA é estatisticamente MAIS RÁPIDO que SA;;;;;inf;;;
-SA vs LNS;inf;;Não;0.3798251938371662;N/A;Algoritmos Equivalentes (Empate);;;;;;inf;;
-SA vs GRASP;inf;;Sim;0.0024653917216077266;0.0012326958608038633;SA é estatisticamente MAIS RÁPIDO que GRASP;;;;;;;inf;
-SA vs RKO;inf;;Sim;7.799274761554834e-08;3.899637380777417e-08;RKO é estatisticamente MAIS RÁPIDO que SA;;;;;;;;inf
+SA vs ILS;3470058.85;3149600.425;Sim;6.79862776734755e-07;3.399313883673775e-07;ILS é estatisticamente MAIS RÁPIDO que SA;;;;;;;;
+SA vs VNS;3470058.85;;Sim;2.7122759406037518e-06;1.3561379703018759e-06;VNS é estatisticamente MAIS RÁPIDO que SA;3160040.15;;;;;;;
+SA vs BRKGA;3470058.85;;Sim;3.856406788798386e-06;1.928203394399193e-06;SA é estatisticamente MAIS RÁPIDO que BRKGA;;3565766.225;;;;;;
+SA vs BRKGACS;3470058.85;;Sim;0.005992687314858607;0.0029963436574293035;BRKGACS é estatisticamente MAIS RÁPIDO que SA;;;3304244.75;;;;;
+SA vs PSO;3470058.85;;Sim;0.00016765864938591066;8.382932469295533e-05;SA é estatisticamente MAIS RÁPIDO que PSO;;;;3522136.975;;;;
+SA vs GA;3470058.85;;Sim;3.0121690707513427e-05;1.5060845353756713e-05;SA é estatisticamente MAIS RÁPIDO que GA;;;;;3532339.25;;;
+SA vs LNS;3470058.85;;Não;0.07033917775879672;N/A;Algoritmos Equivalentes (Empate);;;;;;3381291.775;;
+SA vs GRASP;3470058.85;;Sim;3.186777746432028e-07;1.593388873216014e-07;GRASP é estatisticamente MAIS RÁPIDO que SA;;;;;;;3123968.725;
+SA vs RKO;3470058.85;;Sim;1.140214479510659e-07;5.701072397553295e-08;SA é estatisticamente MAIS RÁPIDO que RKO;;;;;;;;3607473.775

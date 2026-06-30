@@ -1,0 +1,11 @@
+﻿Metaheuristica;Vitorias;Derrotas;Score
+RKO;9;0;9
+BRKGA;8;1;7
+GA;6;2;4
+PSO;6;2;4
+SA;4;4;0
+LNS;3;4;-1
+BRKGACS;3;5;-2
+VNS;1;7;-6
+ILS;0;7;-7
+GRASP;0;8;-8

@@ -1,6 +1,6 @@
 #arquivo_de_lote
 #!/bin/bash
-# ./runTest "../Instances/CKP_Classical_Instances/25/1_20_25" 2
+./runTest "../Instances/CKP_Classical_Instances/25/1_20_25" 2
 # ./runTest "../Instances/CKP_Classical_Instances/25/2_20_25" 2
 # ./runTest "../Instances/CKP_Classical_Instances/25/3_20_25" 2
 # ./runTest "../Instances/CKP_Classical_Instances/25/4_20_25" 2

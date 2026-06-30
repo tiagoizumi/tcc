@@ -87,10 +87,10 @@ double Decoder(TSol &s, const TProblemData &data)
     int n = data.n;
     std::vector<int> x(n, 0);
     for (int i = 0; i < n; i++)
-        if (s.rk[i] > 0.5)
+        if (s.rk[i] >= 0.5)
             x[i] = 1;
 
-    // Reparo: mantém apenas os itens que cabem na mochila
+    // mantém apenas os itens que cabem na mochila
     int totalW = 0;
     for (int i = 0; i < n; i++)
         if (x[i] == 1)
